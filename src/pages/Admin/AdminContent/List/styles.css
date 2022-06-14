@@ -1,0 +1,9 @@
+.content-crud {
+  margin: 0 10px;
+}
+
+@media (min-width: 992px) {
+  .content-crud {
+    margin: 15px 10px;
+  }
+}

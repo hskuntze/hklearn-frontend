@@ -1,0 +1,40 @@
+.offer-form-container {
+  margin: 20px;
+}
+
+.offer-form-card {
+  padding: 20px;
+}
+
+.offer-form-card h1 {
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  margin-bottom: 15px;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.date-picker {
+  border-radius: 10px;
+  border: unset;
+  padding: 20px;
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .offer-form-card {
+    width: 500px;
+  }
+}
+
+@media (min-width: 768px) {
+  .offer-form-card {
+    width: 700px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .offer-form-card {
+    width: 1000px;
+  }
+}

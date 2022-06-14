@@ -1,0 +1,9 @@
+.offer-crud {
+  margin: 0 10px;
+}
+
+@media (min-width: 992px) {
+  .offer-crud {
+    margin: 15px 10px;
+  }
+}

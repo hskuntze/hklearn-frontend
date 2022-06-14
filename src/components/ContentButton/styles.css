@@ -1,0 +1,86 @@
+.content-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-button-container button {
+  width: 300px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.content-button-container button svg {
+  transform: rotate(90deg);
+}
+
+.button-content-info-container {
+  width: 200px;
+}
+
+.iframe-item {
+  margin-top: 15px;
+}
+
+.iframe-item > iframe {
+  width: 300px;
+  height: 250px;
+}
+
+@media (min-width: 576px) {
+  .content-button-container button {
+    width: 500px;
+  }
+
+  .iframe-item > iframe {
+    width: 500px;
+    height: 450px;
+  }
+
+  .button-content-info-container {
+    width: 400px;
+  }
+}
+
+@media (min-width: 768px) {
+  .content-button-container button {
+    width: 700px;
+  }
+
+  .iframe-item > iframe {
+    width: 700px;
+    height: 550px;
+  }
+
+  .button-content-info-container {
+    width: 600px;
+  }
+}
+
+@media (min-width: 992px) {
+  .content-button-container button {
+    width: 900px;
+  }
+
+  .iframe-item > iframe {
+    width: 900px;
+    height: 500px;
+  }
+
+  .button-content-info-container {
+    width: 800px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content-button-container button {
+    width: 1000px;
+  }
+
+  .iframe-item > iframe {
+    width: 1000px;
+  }
+}

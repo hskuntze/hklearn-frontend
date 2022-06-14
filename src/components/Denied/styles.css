@@ -1,0 +1,29 @@
+.denied-message {
+  width: 280px;
+  height: 300px;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin: 25px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 576px) {
+  .denied-message {
+    width: 480px;
+  }
+}
+
+@media (min-width: 768px) {
+  .denied-message {
+    width: 580px;
+  }
+}
+
+@media (min-width: 992px) {
+  .denied-message {
+    width: 880px;
+  }
+}

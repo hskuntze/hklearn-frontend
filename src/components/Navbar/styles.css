@@ -1,0 +1,69 @@
+.nav-logo-text,
+.nav-logo-text:hover {
+  color: #fff;
+}
+
+.nav-logo-text h1 {
+  font-family: "Permanent Marker", cursive;
+}
+
+.main-nav {
+  min-height: 70px;
+  padding-left: 40px;
+}
+
+.main-menu {
+  display: flex;
+  font-size: 16px;
+  width: 360px;
+  justify-content: space-between;
+}
+
+.main-menu a {
+  color: #fff;
+  font-weight: bold;
+}
+
+.main-menu a:hover {
+  color: #bf9b93;
+}
+
+.main-menu a.active {
+  color: #bf9b93;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+.nav-login-logout {
+  display: none;
+}
+
+.nav-username {
+  display: none;
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .nav-login-logout {
+    display: unset;
+    color: #fff;
+    margin-right: 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .nav-login-logout {
+    margin-right: 30px;
+  }
+
+  .nav-username {
+    display: unset;
+    margin-right: 9px;
+  }
+}

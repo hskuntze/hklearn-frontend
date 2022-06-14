@@ -1,0 +1,33 @@
+.content-form-container {
+  margin: 20px;
+}
+
+.content-form-card {
+  padding: 20px;
+}
+
+.content-form-card h1 {
+  font-size: 24px;
+  letter-spacing: -0.02em;
+  margin-bottom: 15px;
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (min-width: 576px) {
+  .content-form-card {
+    width: 500px;
+  }
+}
+
+@media (min-width: 768px) {
+  .content-form-card {
+    width: 700px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content-form-card {
+    width: 1000px;
+  }
+}

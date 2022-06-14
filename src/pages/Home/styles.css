@@ -1,0 +1,80 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-content {
+    margin: 30px 20px;
+    font-size: 20px;
+}
+
+.main-content h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.main-content p {
+    font-size: 0.8em;
+    font-weight: 300;
+    margin-top: 30px;
+    text-align: justify;
+    letter-spacing: 0.03em;
+    color: #263238;
+}
+
+.button {
+    width: 280px;
+}
+
+@media (min-width: 576px){
+    .main-content {
+        margin: 40px 20px;
+    }
+    
+    .main-content h1 {
+        font-size: 1.8em;
+    }
+    
+    .main-content p {
+        font-size: 0.9em;
+        letter-spacing: 0;
+    }
+
+    .button {
+        width: 380px;
+    }
+}
+
+@media (min-width: 768px){
+    .main-content {
+        margin: 50px 40px;
+    }
+    
+    .main-content h1 {
+        font-size: 2em;
+    }
+    
+    .main-content p {
+        font-size: 1.1em;
+        text-align: center;
+        letter-spacing: 0;
+    }
+
+    .button {
+        width: 480px;
+    }
+}
+
+@media (min-width: 992px){
+    .main-content {
+        margin: 50px;
+    }
+}
+
+@media (min-width: 1200px){
+    .main-content {
+        margin: 70px;
+    }
+}
