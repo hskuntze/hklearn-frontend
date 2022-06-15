@@ -7,9 +7,12 @@ import { requestBackend } from "util/requests";
 import ContentCrudCard from "../ContentCrudCard";
 import Pagination from "components/Pagination";
 import "./styles.css";
+import { FilterContent } from "types/FilterContent";
+import FilterBar from "components/FilterBar";
 
 type ControlComponentsData = {
   activePage: number;
+  filterData: FilterContent;
 };
 
 const List = () => {
@@ -18,12 +21,18 @@ const List = () => {
   const [controlComponentsData, setControlComponentsData] =
     useState<ControlComponentsData>({
       activePage: 0,
+      filterData: { title: "", offer: null },
     });
 
   const handlePageChange = (pageNumber: number) => {
     setControlComponentsData({
       activePage: pageNumber,
+      filterData: controlComponentsData.filterData,
     });
+  };
+
+  const handleSubmitFilter = (data: FilterContent) => {
+    setControlComponentsData({ activePage: 0, filterData: data });
   };
 
   const getContents = useCallback(() => {
@@ -34,8 +43,8 @@ const List = () => {
         withCredentials: true,
         method: "GET",
         params: {
-          offerId: 0,
-          title: "",
+          offerId: controlComponentsData.filterData.offer?.id,
+          title: controlComponentsData.filterData.title,
           size: 4,
           page: controlComponentsData.activePage,
         },
@@ -57,8 +66,11 @@ const List = () => {
     <div className="admin-content-list">
       <div className="content-crud">
         <Link to="/admin/adminContent/create">
-          <button className="btn btn-primary text-white">ADICIONAR</button>
+          <button className="btn btn-primary text-white btn-add">
+            ADICIONAR
+          </button>
         </Link>
+        <FilterBar onSubmitFilter={handleSubmitFilter} />
       </div>
       {page &&
         page.content.map((content) => (

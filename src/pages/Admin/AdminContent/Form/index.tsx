@@ -32,14 +32,14 @@ const Form = () => {
   useEffect(() => {
     const controller = new AbortController();
     (async () => {
-      const { data } = (
-        await requestBackend({
-          url: "/offers",
-          withCredentials: true,
-          signal: controller.signal,
-          method: "GET",
-        })
-      ).data;
+      const params: AxiosRequestConfig = {
+        url: "/offers",
+        method: "GET",
+        withCredentials: true,
+        signal: controller.signal,
+      };
+
+      const data = (await requestBackend(params)).data.content;
       setSelectOffers(data);
     })();
 
