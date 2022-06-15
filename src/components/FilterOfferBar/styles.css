@@ -1,0 +1,19 @@
+.filter-offer-input {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.filter-offer-input input {
+  border: none;
+  background-color: unset;
+}
+
+.filter-offer-input input:focus {
+  box-shadow: none;
+}
+
+.filter-offer-input input::placeholder {
+  color: #000;
+}
