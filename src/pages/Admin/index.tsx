@@ -2,6 +2,7 @@ import PrivateRoute from "components/PrivateRoute";
 import { Route, Routes } from "react-router-dom";
 import AdminContent from "./AdminContent";
 import AdminOffer from "./AdminOffer";
+import AdminUsers from "./AdminUsers";
 import Navbar from "./Navbar";
 import "./styles.css";
 
@@ -24,6 +25,14 @@ const Admin = () => {
             element={
               <PrivateRoute roles={["ROLE_ADMIN"]}>
                 <AdminOffer />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="adminUsers/*"
+            element={
+              <PrivateRoute roles={["ROLE_ADMIN"]}>
+                <AdminUsers />
               </PrivateRoute>
             }
           />
