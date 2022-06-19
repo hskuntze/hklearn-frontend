@@ -34,7 +34,7 @@ const Register = () => {
     requestBackend(params)
       .then(() => {
         toast.success("Cadastrado com sucesso");
-        history("/");
+        history("/auth");
         setHasError(false);
       })
       .catch((err) => {

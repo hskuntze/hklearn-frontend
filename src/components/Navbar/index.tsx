@@ -64,6 +64,20 @@ const Navbar = () => {
             ) : (
               <></>
             )}
+            <li className="login-small-screen">
+              {authContextData.authenticated ? (
+                <>
+                  <span className="nav-username">
+                    {authContextData.tokenData?.user_name}
+                  </span>
+                  <a href="logout" onClick={handleLogout}>
+                    LOGOUT
+                  </a>
+                </>
+              ) : (
+                <NavLink to="/auth">LOGIN</NavLink>
+              )}
+            </li>
           </ul>
         </div>
         <div className="nav-login-logout">

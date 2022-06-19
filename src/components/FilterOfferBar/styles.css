@@ -18,10 +18,23 @@
   color: #000;
 }
 
+@media (min-width: 576px) {
+  .filter-offer-input {
+    width: 470px;
+  }
+}
+
 @media (min-width: 768px) {
   .filter-offer-input {
     margin-right: 10px;
     margin-bottom: unset;
     margin-top: 10px;
+    width: 205px;
+  }
+}
+
+@media (min-width: 768px) {
+  .filter-offer-input {
+    width: 230px;
   }
 }

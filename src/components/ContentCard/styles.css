@@ -10,7 +10,7 @@
   margin: 15px 10px;
   padding: 10px;
   text-align: center;
-  width: 280px;
+  width: 300px;
 }
 
 .offer-info h3 {
@@ -32,7 +32,8 @@
 
 @media (min-width: 576px) {
   .content-card {
-    width: 530px;
+    width: 500px;
+    height: 300px;
   }
 }
 
@@ -42,7 +43,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 738px;
+    width: 650px;
     height: 350px;
   }
 }

@@ -55,6 +55,10 @@ h1 {
     color: #fff;
     margin-right: 15px;
   }
+
+  .login-small-screen {
+    display: none;
+  }
 }
 
 @media (min-width: 992px) {
