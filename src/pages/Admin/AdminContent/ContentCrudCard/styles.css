@@ -5,7 +5,7 @@
   justify-content: center;
   align-content: center;
   font-size: 24px;
-  width: 280px;
+  width: 300px;
   margin: 15px 10px;
   padding: 10px;
   text-align: center;
@@ -51,18 +51,20 @@
 
 @media (min-width: 576px) {
   .content-crud-container {
-    width: 530px;
+    width: 500px;
   }
 }
 
 @media (min-width: 768px) {
+  .content-crud-container {
+    width: 650px;
+  }
+
   .content-crud-card {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 738px;
-    height: 350px;
   }
 }
 

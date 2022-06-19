@@ -1,7 +1,9 @@
 .filter-bar {
   padding: 15px;
   margin-bottom: 20px;
-  width: 280px;
+  width: 300px;
+  display: flex;
+  align-items: center;
 }
 
 .filter-input {
@@ -34,13 +36,12 @@
 }
 
 .filter-offer {
-  flex: 1;
+  width: 200px;
   margin-right: 5px;
 }
 
 .clean-button {
   border: 1px solid #000;
-  box-shadow: inset 0px 0px 10px 4px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   font-weight: 700;
   font-size: 12px;
@@ -48,6 +49,10 @@
   letter-spacing: -0.015em;
   color: #000;
   text-transform: uppercase;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .offer-filter-select__control {
@@ -74,16 +79,21 @@
 
 @media (min-width: 576px) {
   .filter-bar {
-    width: 530px;
+    width: 500px;
+  }
+
+  .filter-input {
+    width: 470px;
+  }
+
+  .filter-offer {
+    width: 400px;
   }
 }
 
 @media (min-width: 768px) {
   .filter-bar {
-    margin-left: 25px;
-    flex: 1;
-    padding: 6px 15px;
-    width: 400px;
+    width: 450px;
   }
 
   .filter-bar-form {
@@ -101,6 +111,7 @@
   }
 
   .filter-offer {
+    width: 200px;
     margin-right: 10px;
   }
 
@@ -112,6 +123,16 @@
 
 @media (min-width: 992px) {
   .filter-bar {
-    width: 573px;
+    width: 505px;
+  }
+
+  .filter-input {
+    width: 180px;
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+
+  .filter-offer {
+    width: 205px;
   }
 }

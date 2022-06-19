@@ -17,3 +17,11 @@
 .filter-offer-input input::placeholder {
   color: #000;
 }
+
+@media (min-width: 768px) {
+  .filter-offer-input {
+    margin-right: 10px;
+    margin-bottom: unset;
+    margin-top: 10px;
+  }
+}
