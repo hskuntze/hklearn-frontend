@@ -1,21 +1,19 @@
-import { Link, useNavigate } from "react-router-dom";
+import { AxiosRequestConfig } from "axios";
 import ButtonIcon from "components/ButtonIcon";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { requestBackend } from "util/requests";
 import "./styles.css";
-import { requestBackendLogin } from "util/requests";
-import { useContext, useState } from "react";
-import { saveAuthData } from "util/storage";
-import { AuthContext } from "AuthContext";
-import { getTokenData } from "util/auth";
 
 type FormData = {
-  username: string;
+  name: string;
+  email: string;
   password: string;
 };
 
-const Login = () => {
-  const { setAuthContextData } = useContext(AuthContext);
-
+const Register = () => {
   const [hasError, setHasError] = useState(false);
 
   const {
@@ -27,34 +25,38 @@ const Login = () => {
   const history = useNavigate();
 
   const onSubmit = (formData: FormData) => {
-    requestBackendLogin(formData)
-      .then((response) => {
-        saveAuthData(response.data);
-        setAuthContextData({
-          authenticated: true,
-          tokenData: getTokenData(),
-        });
+    const params: AxiosRequestConfig = {
+      url: "/users",
+      data: { ...formData, roles: [{ id: 1 }, { id: 3 }] },
+      method: "POST",
+    };
+
+    requestBackend(params)
+      .then(() => {
+        toast.success("Cadastrado com sucesso");
+        history("/");
         setHasError(false);
-        history("/offer");
       })
-      .catch(() => {
+      .catch((err) => {
+        toast.error("Sem sucesso no cadastro");
+        console.error(err);
         setHasError(true);
       });
   };
 
   return (
-    <div className="login-container">
-      <div className="base-card login-card">
-        <h1>LOGIN</h1>
+    <div className="register-container">
+      <div className="base-card register-card">
+        <h1>Cadastro</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
             <input
               type="text"
               className={`form-control base-input ${
-                errors.username ? "is-invalid" : ""
+                errors.email ? "is-invalid" : ""
               }`}
               placeholder="Email"
-              {...register("username", {
+              {...register("email", {
                 required: "Campo obrigatório",
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -63,7 +65,22 @@ const Login = () => {
               })}
             />
             <div className="invalid-feedback d-block">
-              {errors.username?.message}
+              {errors.email?.message}
+            </div>
+          </div>
+          <div className="mb-4">
+            <input
+              type="text"
+              className={`form-control base-input ${
+                errors.email ? "is-invalid" : ""
+              }`}
+              placeholder="Nome"
+              {...register("name", {
+                required: "Campo obrigatório",
+              })}
+            />
+            <div className="invalid-feedback d-block">
+              {errors.name?.message}
             </div>
           </div>
           <div className="mb-2">
@@ -82,19 +99,10 @@ const Login = () => {
             </div>
           </div>
           {hasError && (
-            <div className="alert alert-danger">Credenciais inválidas</div>
+            <div className="alert alert-danger">Erro no cadastro</div>
           )}
-          <Link to="recover" className="login-link-recover">
-            Esqueci a senha
-          </Link>
-          <div className="login-submit">
-            <ButtonIcon text="Fazer login" />
-          </div>
-          <div className="signup-container">
-            <span className="not-registered">Não tem Cadastro?</span>
-            <Link to="register" className="login-link-register">
-              CADASTRAR
-            </Link>
+          <div className="register-submit">
+            <ButtonIcon text="Registrar" />
           </div>
         </form>
       </div>
@@ -102,4 +110,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

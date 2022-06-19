@@ -1,5 +1,8 @@
 import { ReactComponent as AuthImage } from "assets/images/auth-image.svg";
+import { Route, Routes } from "react-router-dom";
 import Login from "./Login";
+import Recover from "./Recover";
+import Register from "./Register";
 import "./styles.css";
 
 const Auth = () => {
@@ -14,7 +17,11 @@ const Auth = () => {
         <AuthImage />
       </div>
       <div className="auth-form">
-        <Login />
+        <Routes>
+          <Route path="" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="recover" element={<Recover />} />
+        </Routes>
       </div>
     </div>
   );
