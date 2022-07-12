@@ -8,6 +8,7 @@ import history from "util/navigate";
 import Auth from "pages/Auth";
 import PrivateRoute from "components/PrivateRoute";
 import Admin from "pages/Admin";
+import EmailSent from "components/EmailSent";
 
 const Routes = () => {
   return (
@@ -16,6 +17,7 @@ const Routes = () => {
       <Switch>
         <Route path="/" element={<Home />} />
         <Route path="/auth/*" element={<Auth />} />
+        <Route path="/emailsent/:email" element={<EmailSent />} />
         <Route
           path="/offer"
           element={

@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { requestBackend } from "util/requests";
+import Loader from "./Loader";
 import "./styles.css";
 
 type FormData = {
@@ -15,6 +16,7 @@ type FormData = {
 
 const Register = () => {
   const [hasError, setHasError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     register,
@@ -27,14 +29,15 @@ const Register = () => {
   const onSubmit = (formData: FormData) => {
     const params: AxiosRequestConfig = {
       url: "/users",
-      data: { ...formData, roles: [{ id: 1 }, { id: 3 }] },
+      data: { ...formData, roles: [{ id: 1 }] },
       method: "POST",
     };
 
+    setIsLoading(true);
     requestBackend(params)
       .then(() => {
         toast.success("Cadastrado com sucesso");
-        history("/auth");
+        history(`/emailsent/${formData.email}`);
         setHasError(false);
       })
       .catch((err) => {
@@ -101,9 +104,13 @@ const Register = () => {
           {hasError && (
             <div className="alert alert-danger">Erro no cadastro</div>
           )}
-          <div className="register-submit">
-            <ButtonIcon text="Registrar" />
-          </div>
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <div className="register-submit">
+              <ButtonIcon text="Registrar" />
+            </div>
+          )}
         </form>
       </div>
     </div>

@@ -13,7 +13,6 @@ type LoginData = {
   password: string;
 };
 
-
 export const requestBackendLogin = (loginData: LoginData) => {
   const headers = {
     "Content-Type": "application/x-www-form-urlencoded",
@@ -45,6 +44,12 @@ export const requestBackend = (config: AxiosRequestConfig) => {
   return axios({ ...config, baseURL: BASE_URL, headers });
 };
 
+export const requestBackendVerify = (
+  config: AxiosRequestConfig,
+  verification: string
+) => {
+  return axios({ ...config, baseURL: BASE_URL, params: verification });
+};
 
 axios.interceptors.request.use(
   function (config) {
@@ -68,4 +73,3 @@ axios.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
